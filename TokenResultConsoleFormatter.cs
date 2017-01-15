@@ -18,9 +18,15 @@ namespace JwtTokenParser
             }
             Console.WriteLine("> Issuer: ", parseResult.Issuer);
             Console.WriteLine("> Audience List:");
-            parseResult.AudienceList.ToList().ForEach(a => Console.WriteLine("\t>> {0}", a));
+            if (parseResult.AudienceList != null)
+            {
+                parseResult.AudienceList.ToList().ForEach(a => Console.WriteLine("\t>> {0}", a));
+            }
             Console.WriteLine("> Claims:");
-            parseResult.Claims.ToList().ForEach(c => Console.WriteLine("\t>> Type:[{0}], Value: [{1}]", c.Type, c.Value));
+            if (parseResult.Claims != null)
+            {
+                parseResult.Claims.ToList().ForEach(c => Console.WriteLine("\t>> Type:[{0}], Value: [{1}]", c.Type, c.Value));
+            }
             Console.WriteLine();
 
 
