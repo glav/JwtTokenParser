@@ -25,7 +25,7 @@ namespace JwtTokenParser
             Claims = token.Claims;
             ConstructExpiryInformation(token);
 
-            if (token.ValidFrom >= DateTime.UtcNow && token.ValidTo <= DateTime.UtcNow)
+            if (DateTime.UtcNow >= token.ValidFrom && DateTime.UtcNow <= token.ValidTo)
             {
                 IsValid = true;
             }
