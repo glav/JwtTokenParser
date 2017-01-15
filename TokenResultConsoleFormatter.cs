@@ -9,7 +9,8 @@ namespace JwtTokenParser
     {
         public void WriteToConsole(TokenParseResult parseResult)
         {
-            Console.WriteLine("Token Information");
+            Console.WriteLine("** Token Information **");
+            Console.WriteLine("Signing Algorithm: {0}", parseResult.Algorithm);
             Console.WriteLine("Expiry Information: {0}", parseResult.ExpiryInformation);
             Console.WriteLine("> Is token valid?: {0}", parseResult.IsValid);
             if (!parseResult.IsValid)

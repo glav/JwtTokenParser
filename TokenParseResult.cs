@@ -23,6 +23,7 @@ namespace JwtTokenParser
             Issuer = token.Issuer;
             AudienceList = token.Audiences;
             Claims = token.Claims;
+            Algorithm = token.SignatureAlgorithm;
             ConstructExpiryInformation(token);
 
             if (DateTime.UtcNow >= token.ValidFrom && DateTime.UtcNow <= token.ValidTo)
@@ -35,6 +36,7 @@ namespace JwtTokenParser
                 ErrorMessage = $"Token has expired. {ExpiryInformation}";
             }
         }
+        public string Algorithm { get; private set; }
         public bool IsValid { get; private set; }
 
         public string ErrorMessage { get; private set; }
